@@ -5,11 +5,11 @@
 </p>
 
 <p align="center">
-  <a href="#-try-it-live"><img src="https://img.shields.io/badge/WebGPU-Interactive%203D-76b900?style=for-the-badge&logo=nvidia&logoColor=white" alt="WebGPU" /></a>
+  <a href="https://wonghanz.github.io/a100-odyssey/"><img src="https://img.shields.io/badge/▶_Live_Demo-Play_in_Browser-76b900?style=for-the-badge&logo=nvidia&logoColor=white" alt="Live Demo" /></a>
+  <a href="#-try-it-live"><img src="https://img.shields.io/badge/WebGPU-Interactive%203D-76b900?style=for-the-badge&logo=webgpu&logoColor=white" alt="WebGPU" /></a>
   <a href="#-zero-dependencies--single-file"><img src="https://img.shields.io/badge/Single%20File-80%20KB-00d2ff?style=for-the-badge&logo=html5&logoColor=white" alt="Single File 80 KB" /></a>
   <a href="#-how-it-is-built"><img src="https://img.shields.io/badge/Dependencies-Zero-9b5cff?style=for-the-badge" alt="Zero Dependencies" /></a>
   <a href="#-license"><img src="https://img.shields.io/badge/License-MIT-ffa31a?style=for-the-badge" alt="License: MIT" /></a>
-  <a href="#-controls"><img src="https://img.shields.io/badge/Sound-Web%20Audio%20API-ff4081?style=for-the-badge" alt="Web Audio API" /></a>
 </p>
 
 ---
@@ -17,6 +17,8 @@
 ## 🧭 Overview
 
 **A100 Odyssey** is an explorable, real-time 3D simulation of the **NVIDIA A100 Tensor Core GPU (Ampere GA100)** running directly in your browser with **WebGPU**.
+
+🎮 **[Play Live Demo in Browser](https://wonghanz.github.io/a100-odyssey/)** *(Chrome or Edge recommended)*
 
 Fly through a glowing silicon metropolis where abstract hardware specs become visible, living structures:
 - **Streaming Multiprocessors (SMs)** towering across 8 Graphics Processing Clusters (GPCs)
@@ -32,11 +34,11 @@ Fly through a glowing silicon metropolis where abstract hardware specs become vi
 
 ## 🚀 Try It Live
 
-You don't need to install anything, clone heavy dependencies, or configure build chains.
+You don't need to install anything, clone heavy dependencies, or configure build chains:
 
-1. **Download [`index.html`](index.html)** (a self-contained **80 KB** file that runs completely offline).
-2. **Open in Chrome, Edge, or any modern WebGPU-enabled browser** on a desktop computer.
-3. Click **"Enter the chip"** and start flying through the silicon!
+- 🌐 **[Play Online immediately via GitHub Pages](https://wonghanz.github.io/a100-odyssey/)**
+- 💾 **Or run offline:** Download [`index.html`](index.html) (self-contained **80 KB** file) and double-click to open in **Chrome** or **Edge** on desktop.
+- 🚀 Click **"Enter the chip"** and start flying through the silicon!
 
 *(Note: Requires desktop WebGPU support. Firefox and Safari are rolling out experimental WebGPU flags).*
 
