@@ -1,106 +1,176 @@
-# Abyssal Garden
+# ⚡ A100 Odyssey: Fly Inside an NVIDIA A100 GPU
 
-**A dreamy underwater world you can swim through, right in your browser.**
+<p align="center">
+  <img src="a100/screenshots/crossbar.jpg" alt="A100 Odyssey — Crossbar Canyon and GigaThread Engine" width="100%" />
+</p>
 
-Towering kelp forests, sunbeams pouring through a rippling surface, a sunken ship, manta rays gliding overhead.
-And all of it is made by code: no images, no 3D models, no sound files. The whole world fits in **one 96 KB HTML file**.
+<p align="center">
+  <a href="#-try-it-live"><img src="https://img.shields.io/badge/WebGPU-Interactive%203D-76b900?style=for-the-badge&logo=nvidia&logoColor=white" alt="WebGPU" /></a>
+  <a href="#-zero-dependencies--single-file"><img src="https://img.shields.io/badge/Single%20File-80%20KB-00d2ff?style=for-the-badge&logo=html5&logoColor=white" alt="Single File 80 KB" /></a>
+  <a href="#-how-it-is-built"><img src="https://img.shields.io/badge/Dependencies-Zero-9b5cff?style=for-the-badge" alt="Zero Dependencies" /></a>
+  <a href="#-license"><img src="https://img.shields.io/badge/License-MIT-ffa31a?style=for-the-badge" alt="License: MIT" /></a>
+  <a href="#-controls"><img src="https://img.shields.io/badge/Sound-Web%20Audio%20API-ff4081?style=for-the-badge" alt="Web Audio API" /></a>
+</p>
 
-![Kelp forest with a stone whale tail and a manta ray](.github/screenshots/whale-fluke.jpg)
+---
 
-## Try it
+## 🧭 Overview
 
-1. Download [`index.html`](index.html).
-2. Open it in **Chrome** or **Edge** on a desktop computer.
-3. Wait a few seconds while the world is built, then press **Dive in** and start swimming.
+**A100 Odyssey** is an explorable, real-time 3D simulation of the **NVIDIA A100 Tensor Core GPU (Ampere GA100)** running directly in your browser with **WebGPU**.
 
-Nothing to install, and it works offline. It needs a browser with **WebGPU**. If you see *"This scene needs WebGPU"*, update your browser or switch to Chrome / Edge.
+Fly through a glowing silicon metropolis where abstract hardware specs become visible, living structures:
+- **Streaming Multiprocessors (SMs)** towering across 8 Graphics Processing Clusters (GPCs)
+- **Tensor Cores** multiplying matrices along systolic wavefront diagonals
+- **40 MB L2 Cache** materialized as a forest of tens of thousands of dynamic SRAM bit pillars
+- **HBM2e Memory Stacks** connected via micron-scale micro-bumps on a silicon interposer
+- **12 NVLink 3.0 Rings** streaming high-speed interconnect packets
+- **SIMT Warps** flying in 32-thread formations that visibly split and serialize upon branch divergence
 
-## What's down there
+> **Researched and built by Hanz**: Translating the NVIDIA Ampere GA100 Architecture Whitepaper into an intuitive, interactive spatial world where anyone can see and understand how modern AI supercomputing hardware works.
 
-- **Kelp forests** that sway in the current and sparkle with tiny gold and green specks
-- **Light rays** streaming down from a wavy surface, with shimmering caustics on the sea floor
-- **A sunken wooden ship**, a **giant stone whale tail**, rock arches, canyons and floating boulders
-- **Manta rays**, schools of fish, rising bubbles and drifting particles
-- **A purple grotto** with glowing magenta ground cover, coral and barrel sponges
-- **A soundscape** made up as you listen: a deep rumble, distant whale calls, soft chimes and bubbles
+---
 
-| | |
-|---|---|
-| ![Shipwreck](.github/screenshots/shipwreck.jpg) | ![Looking up through the kelp](.github/screenshots/kelp-forest.jpg) |
-| ![Barrel sponges](.github/screenshots/sponge-garden.jpg) | ![Light rays over the kelp basin](.github/screenshots/light-rays.jpg) |
+## 🚀 Try It Live
 
-![The purple grotto](.github/screenshots/purple-grotto.jpg)
+You don't need to install anything, clone heavy dependencies, or configure build chains.
 
-## Controls
+1. **Open [`index.html`](index.html)** (or [`a100/index.html`](a100/index.html)) in **Chrome** or **Edge** on desktop.
+2. It is a completely self-contained **80 KB** file that works offline.
+3. Click **"Enter the chip"** and start flying through the silicon!
 
-| | Keyboard & mouse |
-|---|---|
-| Look around | Move the mouse |
-| Swim | `W` `A` `S` `D` |
-| Up / down | `E` / `Q` |
-| Swim faster | Hold `Shift` |
-| Jump to a viewpoint | `1` to `6` (the spots in the screenshots) |
-| Menu | `Esc` releases the mouse and opens the menu with the list of controls; **Resume** takes you back |
-| Sound on / off | `M` (sound starts when you dive in) |
-| Performance stats | `H` |
-| Detail level | **Low**, **Medium** or **High** in the menu (reloads the page) |
+*(Note: Requires desktop WebGPU support. Firefox and Safari are rolling out experimental WebGPU flags).*
 
-The seabed, cliffs and arches are solid: you glide along the rock instead of swimming into it, and you still fit through every tunnel and arch. Kelp, plants, corals, sponges, loose rocks, the floating boulders, the ship and the whale tail you can swim through.
+---
 
-**On a touchscreen:** hold one finger down to swim forward and slide it to steer. Put a second finger down to go faster. The `≡` button in the corner opens the menu. Phones always show the scene in landscape and start on Low or Medium detail. (Touch support is experimental.)
+## 🏛️ Silicon World Gallery
 
-## Detail levels
+Every region of the world accurately mirrors the architecture and dataflow of the NVIDIA A100:
 
-The **Low**, **Medium** and **High** buttons in the menu pick the detail level; the current one is lit. Each level is the same world, built with less in it:
+| Feature & Viewpoint | Architectural Significance |
+| :--- | :--- |
+| <img src="a100/screenshots/streaming-multiprocessor.jpg" width="460" alt="Streaming Multiprocessor" /><br/>**Enlarged Streaming Multiprocessor (~50×)** | **The Compute Engine of AI**<br/>Detailed breakdown of an SM into 4 processing partitions: warp scheduler spires, 256 KB register file pillars, INT32 / FP32 / FP64 execution units, Tensor Core arrays, and a unified 192 KB L1 data cache / shared memory hub. |
+| <img src="a100/screenshots/tensor-core.jpg" width="460" alt="Tensor Core Atrium" /><br/>**Tensor Core Systolic Array** | **312 TFLOPS Dense FP16 Throughput**<br/>A 4×4×4 multiply-accumulate (MAC) matrix lattice. Watch the systolic compute wavefront propagate along the diagonal as matrix multiplication occurs cycle-by-cycle. |
+| <img src="a100/screenshots/sm-towers.jpg" width="460" alt="SM Towers District" /><br/>**SM Towers & GPC Districts** | **108 Enabled Streaming Multiprocessors**<br/>8 GPC districts of glowing towers. Towers with red beacons represent the 20 SMs disabled for manufacturing yield (108 active out of 128 physical GA100 SMs). |
+| <img src="a100/screenshots/hbm2e-stack.jpg" width="460" alt="HBM2e Memory Stack" /><br/>**HBM2e Stack & Silicon Interposer** | **~1.6 – 2.0 TB/s Memory Bandwidth**<br/>8 stacked DRAM dies connected by through-silicon vias (TSVs) and micro-bumps onto a TSMC CoWoS (Chip-on-Wafer-on-Substrate) interposer. The 6th stack remains dark (fused off on A100). |
+| <img src="a100/screenshots/l2-cache.jpg" width="460" alt="L2 Cache Forest" /><br/>**L2 Cache Forest** | **40 MB High-Speed Shared Cache**<br/>Divided into two symmetrical partitions flanking the crossbar canyon. Tens of thousands of SRAM bit pillars pulse as read/write waves sweep through lines. |
+| <img src="a100/screenshots/nvlink.jpg" width="460" alt="NVLink Rings" /><br/>**NVLink 3.0 Interconnect Rings** | **600 GB/s Multi-GPU Fabric**<br/>12 bidirectional interconnect rings where high-speed data packet pulses race between neighbouring GPUs in supercomputer clusters. |
 
-| Level | What it is | Picked on a first visit for |
-|---|---|---|
-| **High** | The full scene | Computers |
-| **Medium** | Half of the leaves, sparkles and pebbles; small rocks, sponges and corals cast no shadows | Phones with 8 GB of memory |
-| **Low** | A quarter of the leaves, no anti-aliasing, coarser rocks and corals, simpler lighting, 480p to start with | Other phones, and computers with 4 GB of memory or less |
+---
 
-If loading crashes the tab, or the graphics driver gives up, the page starts again one level lower. Your browser remembers the level, and the resolution and draw distance the scene settled on, for the next visit.
+## 🎮 Interactive Controls & Clock Mechanics
 
-## How it works
+A simulated **chip clock** drives all pipeline stages, memory transactions, and warp flights. You can manipulate time to inspect pipeline phenomena:
 
-- The seabed is sculpted on your graphics card every time the page opens, then decorated with about two million kelp leaves and plants, tens of thousands of rocks, and thousands of sponges, corals and fish.
-- Everything is drawn with **WebGPU** directly. No game engine or 3D library is used.
-- The ship, whale tail, mantas, fish and corals are built from simple mathematical shapes.
-- The sound is synthesized live with the Web Audio API.
-- It's built to run smoothly: about 180 fps at 2560×1440 on an RTX 5070 Ti. On slower hardware it aims for 60 fps by lowering first the resolution and then how far away plants and rocks are drawn, in small steps. The scene is already running, blurred, behind the start menu, so most of that tuning is done before you dive in. A low-end phone (Samsung Galaxy A16) reaches about 20 fps at 670×372 on Low.
+| Category | Input | Action |
+| :--- | :--- | :--- |
+| **Movement** | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> | Fly forward, strafe left, back, right |
+| | <kbd>Q</kbd> / <kbd>E</kbd> | Descend / Ascend |
+| | <kbd>Shift</kbd> | High-speed flight boost |
+| **Camera & Look** | `Mouse Movement` | Look around (click canvas to lock pointer) |
+| **Teleport** | <kbd>1</kbd> – <kbd>6</kbd> | Quick jump to POIs: Crossbar, SM, Tensor Core, L2, HBM2e, NVLink |
+| **Clock Control** | <kbd>Space</kbd> | **Freeze / Resume Clock**: halts cores, warps, and packets mid-cycle |
+| | <kbd>N</kbd> | **Step 1 Clock Cycle**: advance the systolic wavefront by exactly 1 beat |
+| | <kbd>[</kbd> / <kbd>]</kbd> | Decrease / increase simulation clock frequency |
+| **SIMT Architecture** | <kbd>G</kbd> | **Toggle Branch Divergence**: forces 32-thread warps to split into serialized active/inactive groups (orange/green) and reconverge |
+| **Interface** | <kbd>I</kbd> | Toggle live architectural inspection overlay |
+| | <kbd>Esc</kbd> | Open system menu / release pointer lock |
+| | <kbd>M</kbd> | Mute / unmute procedural Web Audio soundscape |
+| | <kbd>H</kbd> | Toggle FPS, frame time & GPU execution timestamps |
 
-## Make it your own
+> **📱 Mobile / Touchscreen:** Hold one finger to fly forward and drag to steer. Touch with a second finger to engage boost. Tap `≡` for the menu.
 
-The readable source code is in the [`source`](source) folder. To change something and rebuild `index.html` you need [Node.js](https://nodejs.org) 18 or newer:
+---
 
-```bash
-cd source
-npm install
-npm run build
+## 🔬 Architectural Mapping: Spec vs. Simulation
+
+| Architecture Component | In the Simulation | Real NVIDIA A100 (Ampere GA100) Specs |
+| :--- | :--- | :--- |
+| **Process & Die Size** | Boundary walls representing package heat spreader | TSMC 7 nm FinFET · 826 mm² die · 54.2 Billion transistors |
+| **Graphics Processing Clusters** | 8 distinct city districts | 8 GPCs (Graphics Processing Clusters) |
+| **Streaming Multiprocessors** | 108 glowing towers; 20 dark towers with red yield markers | 108 active SMs (out of 128 on physical GA100 die) |
+| **CUDA Cores** | Sub-divided core banks inside the magnified SM | 6,912 FP32 cores · 3,456 FP64 cores · 6,912 INT32 cores |
+| **Tensor Cores** | 4×4×4 Multiply-Accumulate 3D systolic lattice | 432 Tensor Cores (3rd-gen) · 312 TFLOPS FP16 (dense) / 624 TFLOPS (sparse) |
+| **Memory Subsystem** | 5 active 8-die HBM2e stacks on micro-bump floor; 1 disabled | 5 active HBM2e stacks · 5,120-bit bus · 40 GB / 80 GB · ~1.6 – 2.0 TB/s |
+| **L2 Cache** | Two symmetric forests of 10,000+ dynamic bit pillars | 40 MB split L2 cache (6.7× larger than Volta V100) |
+| **Interconnect** | 12 glowing photon rings with traveling data packets | NVLink 3.0 (12 links, 600 GB/s bidirectional) + PCIe 4.0 ×16 (64 GB/s) |
+| **SIMT Execution** | Flocks of 32 coordinated arrows flying along H-tree conduits | 32 threads per warp · Simultaneous execution with independent program counters |
+
+---
+
+## 🛠️ How It Is Built
+
+A100 Odyssey is built with zero third-party 3D engines (no Three.js, Babylon.js, or Unity) and zero external assets:
+
+```
+abyssal-garden/
+├── index.html                 # Complete, self-contained single-file A100 world (~80 KB)
+├── abyssal-original.html      # Original Abyssal Garden preserved for reference
+├── a100/
+│   ├── src/
+│   │   ├── main.js            # Renderer loop, camera dynamics, clock engine, POI telemetry
+│   │   ├── world.js           # Procedural chip layout, SM partitions, HBM stacks, NVLink rings
+│   │   ├── shaders.js         # Custom WGSL shaders (PBR lighting, SDF raymarch, volumetric fog)
+│   │   ├── audio.js           # Real-time procedural Web Audio synthesis (H-tree hum, clock clicks)
+│   │   ├── math.js            # Matrix transforms, fast noise, surface net meshing utilities
+│   │   └── quality.js         # Adaptive dynamic resolution & level-of-detail management
+│   ├── screenshots/           # High-resolution architectural screenshots
+│   ├── build.mjs              # Bundler and WGSL minifier
+│   └── template.html          # HTML shell template
+└── source/                    # Upstream Abyssal Garden sources & tooling
 ```
 
-This writes a new `index.html` next to this README. `npm run build:readable` writes an unminified version instead, which is easier to debug in the browser's developer tools.
+- **Pure WebGPU & WGSL:** Direct low-level GPU programming using compute and vertex shaders.
+- **Procedural Signed Distance Fields (SDF):** Compute shaders generate the silicon die, SM monoliths, crossbar canyons, and memory stacks; Surface Nets convert them to meshes on startup.
+- **Instanced Geometry:** Tens of thousands of SRAM cells, CUDA cores, capacitors, and micro-bumps are rendered with hardware instancing and view-frustum grid culling.
+- **Zero-Allocation GPU Animation:** Data packet pulses, systolic wavefronts, and warp trajectories are evaluated directly in vertex shaders from the clock uniform.
+- **Dynamic Resolution & Adaptive LoD:** Continuously balances workload to ensure smooth 60+ FPS on everything from integrated GPUs to desktop rigs.
+- **Synthesized Web Audio:** Audio is generated live with Web Audio API nodes: an H-tree power hum, air displacement whoosh scaled to flight speed, and acoustic ticks synchronized with clock edges.
 
-`npm run build:dev` writes a separate `dev.html` with two extra tools that are not part of `index.html`: `F` flies the camera along a one-minute path through the whole world, and `B` runs that flight as a benchmark and reports frame and GPU times.
+### Rebuilding from Source
 
-| File | What's inside |
-|---|---|
-| [`source/src/world.js`](source/src/world.js) | The world layout: rock walls, arches, tunnels, kelp forests, sponge gardens, fish schools, mantas, the ship and the whale tail. **A good place to start.** |
-| [`source/src/shaders.js`](source/src/shaders.js) | The look: water and fog colors, lighting, kelp, rocks, the water surface and light rays (WGSL shader code) |
-| [`source/src/main.js`](source/src/main.js) | The renderer, the camera, the controls, the six viewpoints and the camera path the world is laid out around |
-| [`source/src/audio.js`](source/src/audio.js) | The soundscape |
-| [`source/src/quality.js`](source/src/quality.js) | The detail levels: which one a device starts on, and what is remembered between visits |
-| [`source/src/math.js`](source/src/math.js) | Noise, random numbers and mesh-building helpers |
-| [`source/src/dev.js`](source/src/dev.js) | Development tools (fly-through and benchmark), only in `dev.html` |
-| [`source/template.html`](source/template.html) | The page around the scene: loading bar, start menu, links and their styles |
+Prerequisites: [Node.js](https://nodejs.org/) v18+
 
-Some easy first tweaks:
+```bash
+cd a100
 
-- **Water color:** `WCOL` (blue-green water) and `PCOL` (purple grotto) near the top of the shared scene code in `shaders.js`
-- **Sunlight color:** `SUNC` right next to them
-- **Brightness and light rays:** `EXPO` and `RAYS` in `main.js`
-- **Swimming speed:** search for `26 : 7` in `main.js` (fast speed : normal speed)
+# Minified production build (outputs index.html ~80 KB)
+node build.mjs
 
-## License
+# Readable unminified build (outputs index.readable.html for debugging)
+node build.mjs --readable
+```
 
-[MIT](LICENSE): free to use, change and share, including in your own projects.
+---
+
+## 🌊 Heritage: Abyssal Garden
+
+A100 Odyssey builds upon the procedural rendering foundation of **[Abyssal Garden](https://github.com/Noniv/abyssal-garden)** by Maksymilian Dendura ([@Noniv](https://github.com/Noniv)), which created a dreamy underwater world inside 96 KB. The original underwater experience is preserved at [`abyssal-original.html`](abyssal-original.html).
+
+---
+
+## ❓ Frequently Asked Questions
+
+<details>
+<summary><b>Is this an exact scale reproduction of the A100 floorplan?</b></summary>
+It is an architecturally accurate pedagogical model. The ratios, counts (108 active SMs, 5 HBM2e stacks, 40 MB L2, 12 NVLinks), and functional relationships are real, but the physical layout is arranged vertically and spatially to make flying through and inspecting components intuitive.
+</details>
+
+<details>
+<summary><b>Why does it say "This scene needs WebGPU"?</b></summary>
+A100 Odyssey relies on modern WebGPU APIs. Please ensure you are running Google Chrome or Microsoft Edge on desktop with hardware acceleration enabled.
+</details>
+
+<details>
+<summary><b>Can I use this for academic lectures, tutorials, or presentations?</b></summary>
+Yes! A100 Odyssey is open-source under the MIT License. It was created specifically to help students, researchers, and engineers grasp computer architecture concepts spatially.
+</details>
+
+---
+
+## 📜 Credits & License
+
+- **Research, Concept & Architecture Implementation:** [Hanz](https://github.com/wonghanz)
+- **Rendering Foundation & Techniques:** Adapted and evolved from [Abyssal Garden](https://github.com/Noniv/abyssal-garden) by Maksymilian Dendura ([@Noniv](https://github.com/Noniv)), used under the [MIT License](LICENSE).
+- **Architecture References:** *NVIDIA A100 Tensor Core GPU Architecture Whitepaper* (NVIDIA Corporation).
+
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for full details.
